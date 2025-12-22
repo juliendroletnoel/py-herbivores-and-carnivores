@@ -12,7 +12,7 @@ class Animal (object):
         Animal.alive.append(self)
 
     @classmethod
-    def __str__(cls) -> dict:
+    def __class__(cls) -> dict:
         return {{"Name": animal.name,
                  "Health": animal.health,
                  "Hidden": animal.hidden}
