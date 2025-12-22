@@ -13,10 +13,11 @@ class Animal (object):
 
     @classmethod
     def __str__(cls) -> dict:
-        return {{"Name": animal.name, 
-                 "Health": animal.health, 
-                 "Hidden": animal.hidden} 
+        return {{"Name": animal.name,
+                 "Health": animal.health,
+                 "Hidden": animal.hidden}
                 for animal in Animal.alive}
+
 
 class Herbivore (Animal):
 
@@ -29,6 +30,7 @@ class Herbivore (Animal):
     def hide(self) -> None:
         self.hidden != self.hidden
 
+
 class Carnivore (Animal):
 
     def __init__(self,
@@ -37,7 +39,7 @@ class Carnivore (Animal):
                  hidden: bool = False) -> None:
         super().__init__(name, health, hidden)
 
-    def bite(self, herbivore: Herbivore):
+    def bite(self, herbivore: Herbivore) -> None:
         if herbivore.hidden:
             return
 
