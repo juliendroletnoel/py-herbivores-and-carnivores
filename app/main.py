@@ -47,7 +47,7 @@ class Carnivore (Animal):
             return
 
         herbivore.health -= 50
-        
+
         if herbivore.health <= 0:
             index = Animal.alive.index(self)
             Animal.alive.remove(index)
