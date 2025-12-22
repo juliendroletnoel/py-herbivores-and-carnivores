@@ -37,5 +37,6 @@ class Carnivore (Animal):
         herbivore.health -= 50
 
         if herbivore.health <= 0:
-            index = Animal.alive.index(herbivore)
+            animals = [element.name for element in Animal.alive]
+            index = animals.index(herbivore.name)
             Animal.alive.remove(index)
