@@ -21,23 +21,11 @@ class Animal (object):
 
 class Herbivore (Animal):
 
-    def __init__(self,
-                 name: str,
-                 health: int = 100,
-                 hidden: bool = False) -> None:
-        super().__init__(name, health, hidden)
-
     def hide(self) -> None:
-        self.hidden != self.hidden
+        self.hidden = not self.hidden
 
 
 class Carnivore (Animal):
-
-    def __init__(self,
-                 name: str,
-                 health: int = 100,
-                 hidden: bool = False) -> None:
-        super().__init__(name, health, hidden)
 
     def bite(self, herbivore: Herbivore) -> None:
         if herbivore.hidden:
@@ -49,5 +37,6 @@ class Carnivore (Animal):
         herbivore.health -= 50
 
         if herbivore.health <= 0:
+            print(Animal.alive)
             index = Animal.alive.index(self)
             Animal.alive.remove(index)
