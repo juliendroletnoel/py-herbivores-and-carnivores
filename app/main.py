@@ -13,9 +13,9 @@ class Animal (object):
 
     def __repr__(self) -> str:
         return {str({"Name": animal.name,
-                 "Health": animal.health,
-                 "Hidden": animal.hidden})
-                for animal in Animal.alive}
+        "Health": animal.health,
+        "Hidden": animal.hidden})
+        for animal in Animal.alive}
 
 
 class Herbivore (Animal):
