@@ -1,6 +1,6 @@
 class Animal (object):
 
-    alive = []
+    alive = list["Animal"] = []
 
     def __init__(self,
                  name: str,
@@ -11,10 +11,18 @@ class Animal (object):
         self.hidden = hidden
         Animal.alive.append(self)
 
+    def _check_death(self):
+        if not self.alive() and self in Animal.alive:
+            Animal.alive.remove(self)
+            
+    def is_alive(self):
+        return self.health > 0
+        
     def __repr__(self) -> str:
-        return str({"Name": animal.name,
-                    "Health": animal.health, "Hidden": animal.hidden}
-                for animal in Animal.alive)
+        return (
+            f"Name: {self.name} Health: {self.health}"
+            f"Hidden: {self.hidden}"
+        )
 
 
 class Herbivore (Animal):
@@ -31,10 +39,9 @@ class Carnivore (Animal):
 
         if not isinstance(herbivore, Herbivore):
             return
+        
+        if not herbivore.is_alive():
+            return
 
         herbivore.health -= 50
-
-        if herbivore.health <= 0:
-            animals = [element.name for element in Animal.alive]
-            index = animals.index(herbivore.name)
-            Animal.alive.pop(index)
+        herbivore._check_death()
