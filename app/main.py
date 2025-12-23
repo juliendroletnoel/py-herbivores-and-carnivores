@@ -1,6 +1,6 @@
 class Animal (object):
 
-    alive = [Animal]
+    alive = []
 
     def __init__(self,
                  name: str,
@@ -10,8 +10,8 @@ class Animal (object):
         self.health = health
         self.hidden = hidden
         Animal.alive.append(self)
- 
-    def __repr__(cls) -> str:
+
+    def __repr__(self) -> str:
         return {{"Name": animal.name,
                  "Health": animal.health,
                  "Hidden": animal.hidden}
