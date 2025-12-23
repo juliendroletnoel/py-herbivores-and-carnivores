@@ -1,6 +1,6 @@
 class Animal (object):
 
-    alive = []
+    alive = [Animal]
 
     def __init__(self,
                  name: str,
@@ -10,9 +10,8 @@ class Animal (object):
         self.health = health
         self.hidden = hidden
         Animal.alive.append(self)
-
-    @classmethod
-    def __class__(cls) -> dict:
+ 
+    def __repr__(cls) -> str:
         return {{"Name": animal.name,
                  "Health": animal.health,
                  "Hidden": animal.hidden}
@@ -39,4 +38,4 @@ class Carnivore (Animal):
         if herbivore.health <= 0:
             animals = [element.name for element in Animal.alive]
             index = animals.index(herbivore.name)
-            Animal.alive.remove(index)
+            Animal.alive.pop(index)
