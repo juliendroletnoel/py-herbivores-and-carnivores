@@ -12,9 +12,9 @@ class Animal (object):
         Animal.alive.append(self)
 
     def __repr__(self) -> str:
-        return {{"Name": animal.name,
+        return {str({"Name": animal.name,
                  "Health": animal.health,
-                 "Hidden": animal.hidden}
+                 "Hidden": animal.hidden})
                 for animal in Animal.alive}
 
 
